@@ -1,0 +1,37 @@
+.sidenav-container.mat-drawer-container {
+    height: 100vh;
+    width: 100vw;
+}
+
+.sidenav {
+    width: 300px;
+    border-radius: 0px;
+
+    .mat-drawer-inner-container {
+        border-radius: 0px;
+    }
+}
+
+.sidenav.mat-toolbar {
+    background: inherit;
+    width: 300px;
+}
+
+.mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.mat-mdc-nav-list {
+    margin: 0px, 10px;
+    padding: 10px;
+
+    .mat-mdc-list-item {
+        border-radius: 6px;
+
+        &:hover {
+            background-color: #F1F5F9;
+        }
+    }
+}
