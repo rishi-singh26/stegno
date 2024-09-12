@@ -156,7 +156,7 @@ export class ExtractImageComponent {
       // Create a link element to trigger the download
       const link = document.createElement('a');
       link.href = this.resultImage.src;
-      link.download = 'steganography-image.png';
+      link.download = 'extract-image.png';
       // Trigger the download
       link.click();
     }
