@@ -4,8 +4,6 @@
 
 <img src="https://cdn.jsdelivr.net/gh/rishi-singh26/stegno/public/WebOGPoster.png" alt="Poster"/>
 
-<img src="https://cdn.jsdelivr.net/gh/rishi-singh26/stegno/public/Variant3.png" alt="Poster"/>
-
 ## Features
 - Hide Image in Image
 - Extract Image from Image
