@@ -1,1 +1,61 @@
-<p>extract-text works!</p>
+<div class="container">
+    <div [ngClass]="{'images-row': !(isHandset$ | async), 'images-col': (isHandset$ | async)}">
+        <div class="image-area">
+            <div class="image-area-container">
+                <div class="image-container">
+                    @if (imageWithSecretSrc == null) {
+                    <span>Image with secret</span>
+                    } @else {
+                    <img [src]="imageWithSecretSrc" alt="Image to be hidden" width="100%">
+                    }
+                </div>
+                <div class="buttons-row">
+                    <input type="file" #imageWithSecretInput (change)="onHiddenFileChange($event)" style="display: none;">
+                    <button class="secondary-btn" type="button" (click)="onFileSelect()">Choose Image</button>
+                    <button class="tertiary-btn" type="button" (click)="resetHiddenFile()">Reset Selection</button>
+                    <span>{{imageWithSecret == null ? '' : imageWithSecret.name}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="image-area">
+            <div class="image-area-container"></div>
+        </div>
+    </div>
+    <hr class="custom-divider mb-2">
+    <div [ngClass]="{'image-data-row': !(isHandset$ | async), 'image-data-col': (isHandset$ | async)}">
+        <div class="image-data-area">
+            <div class="image-data-container">
+                <p class="fw-semibold fs-6 m-0 lh-35">Image with secret</p>
+                <div class="d-flex flex-row align-items-center justify-content-between w-100">
+                    <p class="m-0 lh-35 fs-6">Resolution</p>
+                    <p class="m-0 lh-35 fw-medium fs-6">{{imageWithSecretResolution}}</p>
+                </div>
+                <div class="d-flex flex-row align-items-center justify-content-between w-100">
+                    <p class="m-0 lh-35 fs-6">Size</p>
+                    <p class="m-0 lh-35 fw-medium fs-6">{{getImageSize(imageWithSecret?.size ?? 0)}}</p>
+                </div>
+                <div class="d-flex flex-row-reverse w-100 pt-2">
+                    <button class="primary-btn" type="button" (click)="onExecute()">Execute Selection</button>
+                </div>
+            </div>
+        </div>
+        <div class="image-data-area">
+            <div class="image-data-container">
+                <p class="fw-semibold fs-6 m-0 lh-35">Extracted text</p>
+                <div class="image-container">
+                    @if (resultText.length === 0) {
+                    @if(isExecuting) {
+                    <mat-spinner color="#000" [diameter]="20" [strokeWidth]="2" class="me-1"></mat-spinner>
+                    }
+                    <span>Result</span>
+                    } @else {
+                    <span class="result-text">{{resultText}}</span>
+                    }
+                </div>
+                <div class="d-flex flex-row-reverse w-100 pt-2">
+                    <button class="primary-btn" type="button" [disabled]="resultText.length > 0">Copy Text</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
