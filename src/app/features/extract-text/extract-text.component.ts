@@ -47,21 +47,8 @@ export class ExtractTextComponent {
     }
   }
 
-  onBackgroundFileChange(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files.length > 0) {
-      this.imageWithSecret = input.files[0];
-      const reader = new FileReader();
-      // This method is called once the file has been read
-      reader.onload = () => {
-        this.imageWithSecretSrc = reader.result;
-        this.getImageResolution();
-      };
-      reader.readAsDataURL(this.imageWithSecret); // Read the file as a Data URL
-    }
-  }
-
   resetHiddenFile(): void {
+    this.imageWithSecretInput.nativeElement.value = '';
     this.imageWithSecret = null;
     this.imageWithSecretSrc = null;
   }

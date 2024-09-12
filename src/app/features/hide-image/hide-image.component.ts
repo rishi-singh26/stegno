@@ -75,11 +75,13 @@ export class HideImageComponent {
   }
 
   resetHiddenFile(): void {
+    this.hiddenImageInput.nativeElement.value = '';
     this.hiddenImage = null;
     this.hiddenImageSrc = null;
   }
 
   resetBackgroundFile(): void {
+    this.backgroundImageInput.nativeElement.value = '';
     this.backgroundImage = null;
     this.backgroundImageSrc = null;
   }

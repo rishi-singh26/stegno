@@ -53,6 +53,7 @@ export class HideTextComponent {
   }
 
   resetHiddenFile(): void {
+    this.backgroundImageInput.nativeElement.value = '';
     this.backgroundImage = null;
     this.backgroundImageSrc = null;
   }

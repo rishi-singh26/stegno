@@ -50,6 +50,7 @@ export class ExtractImageComponent {
   }
 
   resetHiddenFile(): void {
+    this.imageWithSecretInput.nativeElement.value = '';
     this.imageWithSecret = null;
     this.imageWithSecretSrc = null;
   }
