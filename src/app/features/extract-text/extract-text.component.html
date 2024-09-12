@@ -35,7 +35,7 @@
                     <p class="m-0 lh-35 fw-medium fs-6">{{getImageSize(imageWithSecret?.size ?? 0)}}</p>
                 </div>
                 <div class="d-flex flex-row-reverse w-100 pt-2">
-                    <button class="primary-btn" type="button" (click)="onExecute()">Execute Selection</button>
+                    <button class="primary-btn" type="button" [disabled]="this.imageWithSecret === null" (click)="onExecute()">Execute Selection</button>
                 </div>
             </div>
         </div>
