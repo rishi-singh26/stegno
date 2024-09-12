@@ -15,3 +15,16 @@ html {
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.lh-35 {
+    line-height: 35px !important;
+}
+
+.custom-divider {
+    border: none; /* Removes the default border */
+    height: 1px; /* Sets the height of the divider */
+    background-color: #d4d4d4; /* Sets the color of the divider */
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
