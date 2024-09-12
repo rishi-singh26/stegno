@@ -18,17 +18,14 @@
             </div>
         </div>
         <div class="image-area">
-            <div class="image-area-container">
-                <div class="image-container">
-                </div>
-            </div>
+            <div class="image-area-container"></div>
         </div>
     </div>
     <hr class="custom-divider mb-2">
     <div [ngClass]="{'image-data-row': !(isHandset$ | async), 'image-data-col': (isHandset$ | async)}">
         <div class="image-data-area">
             <div class="image-data-container">
-                <p class="fw-semibold fs-6 m-0 lh-35">Image to be hidden</p>
+                <p class="fw-semibold fs-6 m-0 lh-35">Image with secret</p>
                 <div class="d-flex flex-row align-items-center justify-content-between w-100">
                     <p class="m-0 lh-35 fs-6">Resolution</p>
                     <p class="m-0 lh-35 fw-medium fs-6">{{imageWithSecretResolution}}</p>
