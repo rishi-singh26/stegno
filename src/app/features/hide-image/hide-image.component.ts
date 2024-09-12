@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { map, Observable, shareReplay } from 'rxjs';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ByteConverterService, SizeUnit } from '../../services/byte-converter.service';
 
 @Component({
   selector: 'app-hide-image',
@@ -207,5 +208,9 @@ export class HideImageComponent {
       // Trigger the download
       link.click();
     }
+  }
+
+  getImageSize(sizeinBytes: number): string {
+    return ByteConverterService.fromBytes(sizeinBytes).toHumanReadable(SizeUnit.MB);
   }
 }

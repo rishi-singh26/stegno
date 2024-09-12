@@ -36,7 +36,7 @@
             </div>
         </div>
     </div>
-    <hr class="custom-divider">
+    <hr class="custom-divider mb-2">
     <div [ngClass]="{'image-data-row': !(isHandset$ | async), 'image-data-col': (isHandset$ | async)}">
         <div class="image-data-area">
             <div class="image-data-container">
@@ -47,7 +47,7 @@
                 </div>
                 <div class="d-flex flex-row align-items-center justify-content-between w-100">
                     <p class="m-0 lh-35 fs-6">Size</p>
-                    <p class="m-0 lh-35 fw-medium fs-6">{{hiddenImage?.size ?? ''}}</p>
+                    <p class="m-0 lh-35 fw-medium fs-6">{{getImageSize(hiddenImage?.size ?? 0)}}</p>
                 </div>
                 <hr class="custom-divider">
                 <p class="fw-semibold fs-6 m-0 lh-35">Background hidden</p>
@@ -57,7 +57,7 @@
                 </div>
                 <div class="d-flex flex-row align-items-center justify-content-between w-100">
                     <p class="m-0 lh-35 fs-6">Size</p>
-                    <p class="m-0 lh-35 fw-medium fs-6">{{backgroundImage?.size ?? ''}}</p>
+                    <p class="m-0 lh-35 fw-medium fs-6">{{getImageSize(backgroundImage?.size ?? 0)}}</p>
                 </div>
                 <div class="d-flex flex-row-reverse w-100 pt-2">
                     <button class="primary-btn" type="button" (click)="onExecute()">Execute Selection</button>
@@ -80,7 +80,7 @@
                 <div class="d-flex flex-row align-items-center justify-content-between w-100">
                     <p class="m-0 lh-35 fs-6">Resolution</p>
                     @if (resultImage !== null) {
-                    <p class="m-0 lh-35 fw-medium fs-6">{{resultImage!.width + '×' + resultImage!.height + 'pixels'}}
+                    <p class="m-0 lh-35 fw-medium fs-6">{{resultImage!.width + '×' + resultImage!.height + ' pixels'}}
                     </p>
                     }
                 </div>
