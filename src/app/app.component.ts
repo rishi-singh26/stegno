@@ -8,7 +8,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
+import { appRoutes } from './constants/route-name.constatns';
 
 @Component({
   selector: 'app-root',
@@ -28,9 +29,27 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   private breakpointObserver = inject(BreakpointObserver);
+  private router: Router = inject(Router);
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe([Breakpoints.Tablet, Breakpoints.Handset]).pipe(
     map(result => result.matches),
     shareReplay()
   );
+
+  getPageTitle(): string {
+    switch (this.router.url) {
+      case '/' + appRoutes.landing:
+        return 'Hide Image in Image'
+      case '/' + appRoutes.hideImage:
+        return 'Hide Image in Image'
+      case '/' + appRoutes.extractImage:
+        return 'Extract Image from Image'
+      case '/' + appRoutes.hideText:
+        return 'Hide Text in Image'
+      case '/' + appRoutes.extractText:
+        return 'Extract Text from Image'
+      default:
+        return '';
+    }
+  }
 }
