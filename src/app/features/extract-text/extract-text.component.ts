@@ -136,6 +136,12 @@ export class ExtractTextComponent {
     });
   }
 
+  async copyExtractedText(): Promise<void> {
+    if (this.resultText.length > 0) {
+      await navigator.clipboard.writeText(this.resultText); 
+    }
+  }
+
   // Helper function to convert binary string to text
   binaryToText(binary: string): string {
     const textArray = [];
