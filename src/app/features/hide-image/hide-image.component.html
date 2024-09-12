@@ -3,24 +3,35 @@
         <div class="image-area">
             <div class="image-area-container">
                 <div class="image-container">
-                    <p>Hidden image</p>
+                    @if (hiddenImageSrc == null) {
+                    <span>Hidden image</span>
+                    } @else {
+                    <img [src]="hiddenImageSrc" alt="Image to be hidden" width="100%">
+                    }
                 </div>
                 <div class="buttons-row">
-                    <input type="file" #hiddenFileInput (change)="onHiddenFileChange($event)" style="display: none;">
-                    <button class="secondary-btn" type="button" (click)="onHiddenFileSelect()">Choose Image</button>
+                    <input type="file" #hiddenImageInput (change)="onHiddenFileChange($event)" style="display: none;">
+                    <button class="secondary-btn" type="button" (click)="onFileSelect()">Choose Image</button>
                     <button class="tertiary-btn" type="button" (click)="resetHiddenFile()">Reset Selection</button>
-                    <p>{{hiddenFile == null ? '' : hiddenFile.name}}</p>
+                    <span>{{hiddenImage == null ? '' : hiddenImage.name}}</span>
                 </div>
             </div>
         </div>
         <div class="image-area">
             <div class="image-area-container">
                 <div class="image-container">
+                    @if (backgroundImageSrc == null) {
                     <p>Background image</p>
+                    } @else {
+                    <img [src]="backgroundImageSrc" alt="Background Image" width="100%">
+                    }
                 </div>
                 <div class="buttons-row">
-                    <button class="secondary-btn" [disabled]="true" type="button">Choose Image</button>
-                    <button class="tertiary-btn" type="button">Reset Selection</button>
+                    <input type="file" #backgroundImageInput (change)="onBackgroundFileChange($event)"
+                        style="display: none;">
+                    <button class="secondary-btn" type="button" (click)="onFileSelect(false)">Choose Image</button>
+                    <button class="tertiary-btn" type="button" (click)="resetBackgroundFile()">Reset Selection</button>
+                    <span>{{backgroundImage == null ? '' : backgroundImage.name}}</span>
                 </div>
             </div>
         </div>
@@ -32,37 +43,50 @@
                 <p class="fw-semibold fs-6 m-0 lh-35">Image to be hidden</p>
                 <div class="d-flex flex-row align-items-center justify-content-between w-100">
                     <p class="m-0 lh-35 fs-6">Resolution</p>
-                    <p class="m-0 lh-35 fw-medium fs-6">1260 × 774 pixels</p>
+                    <p class="m-0 lh-35 fw-medium fs-6">{{hiddenImageResolution}}</p>
                 </div>
                 <div class="d-flex flex-row align-items-center justify-content-between w-100">
                     <p class="m-0 lh-35 fs-6">Size</p>
-                    <p class="m-0 lh-35 fw-medium fs-6">1.4 MB</p>
+                    <p class="m-0 lh-35 fw-medium fs-6">{{hiddenImage?.size ?? ''}}</p>
                 </div>
                 <hr class="custom-divider">
                 <p class="fw-semibold fs-6 m-0 lh-35">Background hidden</p>
                 <div class="d-flex flex-row align-items-center justify-content-between w-100">
                     <p class="m-0 lh-35 fs-6">Resolution</p>
-                    <p class="m-0 lh-35 fw-medium fs-6">1260 × 774 pixels</p>
+                    <p class="m-0 lh-35 fw-medium fs-6">{{backgroundImageResolution}}</p>
                 </div>
                 <div class="d-flex flex-row align-items-center justify-content-between w-100">
                     <p class="m-0 lh-35 fs-6">Size</p>
-                    <p class="m-0 lh-35 fw-medium fs-6">1.4 MB</p>
+                    <p class="m-0 lh-35 fw-medium fs-6">{{backgroundImage?.size ?? ''}}</p>
                 </div>
                 <div class="d-flex flex-row-reverse w-100 pt-2">
-                    <button class="primary-btn" type="button">Execute Selection</button>
+                    <button class="primary-btn" type="button" (click)="onExecute()">Execute Selection</button>
                 </div>
             </div>
         </div>
         <div class="image-data-area">
             <div class="image-data-container">
-                
+                <div class="image-container">
+                    @if (resultImage == null) {
+                    @if(isExecuting) {
+                    <mat-spinner color="#000" [diameter]="20" [strokeWidth]="2" class="me-1"></mat-spinner>
+                    }
+                    <span>Result</span>
+                    } @else {
+                    <img [src]="resultImage!.src" alt="Image to be hidden" width="100%">
+                    }
+                </div>
                 <p class="fw-semibold fs-6 m-0 lh-35">Result Image</p>
                 <div class="d-flex flex-row align-items-center justify-content-between w-100">
                     <p class="m-0 lh-35 fs-6">Resolution</p>
-                    <p class="m-0 lh-35 fw-medium fs-6">1260 × 774 pixels</p>
+                    @if (resultImage !== null) {
+                    <p class="m-0 lh-35 fw-medium fs-6">{{resultImage!.width + '×' + resultImage!.height + 'pixels'}}
+                    </p>
+                    }
                 </div>
                 <div class="d-flex flex-row-reverse w-100 pt-2">
-                    <button class="primary-btn" type="button">Download Image</button>
+                    <button class="primary-btn" type="button" [disabled]="!resultImage"
+                        (click)="downloadResult()">Download Image</button>
                 </div>
             </div>
         </div>

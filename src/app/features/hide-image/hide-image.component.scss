@@ -43,17 +43,6 @@
         align-items: start;
         justify-content: flex-start;
 
-        .image-container {
-            width: 100%;
-            height: 350px;
-            background-color: #f2f2f2;
-            border-radius: 10px;
-            border: 0.5px dashed #AEB3BA;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
         .buttons-row {
             width: 100%;
             padding: 1% 0%;
@@ -99,6 +88,25 @@
         align-items: start;
         justify-content: flex-start;
     }
+
+    .image-container {
+        width: 100%;
+        height: 350px;
+        background-color: #f2f2f2;
+        border-radius: 10px;
+        border: 0.5px dashed #AEB3BA;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .image-container img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        /* Maintain aspect ratio inside the container */
+    }
 }
 
 button {
@@ -110,7 +118,7 @@ button {
     &.primary-btn {
         background-color: #000000;
         color: #ffffff;
-        
+
         &:hover {
             background-color: #404040;
             cursor: pointer;
