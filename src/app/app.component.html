@@ -1,7 +1,7 @@
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
         [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
-        <mat-toolbar><img src="https://cdn.jsdelivr.net/gh/rishi-singh26/stegno/public/crocodile.png" width="40" height="40" alt="Steganograph app icoc consisting of a white background with a cartoon drawing of a green dianosaur">&nbsp;&nbsp;Steganograph</mat-toolbar>
+        <mat-toolbar><img src="https://cdn.jsdelivr.net/gh/rishi-singh26/stegno/public/crocodile.png" width="40" height="40" alt="Stegno app icon consisting of a white background with a cartoon drawing of a green dianosaur">&nbsp;&nbsp;Stegno</mat-toolbar>
         <mat-nav-list>
             @if ((isHandset$ | async) === false) {
             <a mat-list-item routerLink="/hide-image">Hide Image</a>

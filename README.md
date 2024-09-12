@@ -1,4 +1,4 @@
-# Steganograph
+# Stegno
 
 **Check it out at [https://stegno.rishisingh.in](https://stegno.rishisingh.in)**
 
