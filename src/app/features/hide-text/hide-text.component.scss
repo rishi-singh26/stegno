@@ -118,39 +118,3 @@
     resize: none;
     outline: none;
 }
-
-button {
-    border-radius: 6px;
-    padding: 8px 16px;
-    border: none;
-    margin: 0px 3px;
-
-    &.primary-btn {
-        background-color: #000000;
-        color: #ffffff;
-
-        &:hover {
-            background-color: #404040;
-            cursor: pointer;
-        }
-    }
-
-    &.secondary-btn {
-        background-color: #E2E8F0;
-        color: #0f172a;
-    }
-
-    &.tertiary-btn {
-        background-color: transparent;
-        color: #0f172a;
-    }
-
-    &:hover {
-        background-color: #cacfd6;
-        cursor: pointer;
-    }
-
-    &:disabled {
-        cursor: not-allowed;
-    }
-}
