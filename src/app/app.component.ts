@@ -29,9 +29,8 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 export class AppComponent {
   private breakpointObserver = inject(BreakpointObserver);
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe([Breakpoints.Tablet, Breakpoints.Handset]).pipe(
+    map(result => result.matches),
+    shareReplay()
+  );
 }
