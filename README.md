@@ -3,6 +3,7 @@
 **Check it out at [https://rishi-singh26.github.io/stegno](https://rishi-singh26.github.io/stegno)**
 
 <img src="https://cdn.jsdelivr.net/gh/rishi-singh26/stegno/public/WebOGPoster.png" alt="Poster"/>
+<img src="https://cdn.jsdelivr.net/gh/rishi-singh26/stegno/public/Variant3.png" alt="Poster"/>
 
 ## Features
 - Hide Image in Image
